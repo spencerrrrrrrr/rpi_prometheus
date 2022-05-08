@@ -1,0 +1,20 @@
+---
+- hosts: rpi
+  become: yes
+
+  tasks:
+  - name: Ensure chrony is installed.
+    apt:
+      name: chrony
+      state: present
+
+  - name: Ensure chrony is running for time synchronization.
+    service:
+      name: chronyd
+      state: started
+      enabled: yes
+
+  - name: Ensure Prometheus is installed.
+    apt:
+      name: prometheus
+      state: present
