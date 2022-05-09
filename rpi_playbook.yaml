@@ -18,3 +18,9 @@
     apt:
       name: prometheus
       state: present
+
+  - name: Ensure Prometheus is running
+    service:
+      name: prometheus
+      state: started
+      enabled: yes
