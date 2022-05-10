@@ -19,8 +19,11 @@
       name: prometheus
       state: present
 
-  - name: Ensure Prometheus is running
+  - name: Ensure Prometheus is running.
     service:
       name: prometheus
       state: started
       enabled: yes
+
+  - name: Insert Prometheus config file.
+    copy: "src=./prom.yaml dest=/Prometheus/prom_conf.yaml"
